@@ -8,11 +8,16 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        return "home/home";
+        return "index";
 }
-    @RequestMapping("/index")
+    @RequestMapping("/index.html")
     public String index(){
 
         return "index";
+    }
+    @RequestMapping("/order.html")
+    public String orderForm(){
+
+        return "orderforms/orderform";
     }
 }

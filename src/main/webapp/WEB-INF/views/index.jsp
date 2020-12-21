@@ -2,91 +2,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Khela Computer</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="<c:url value="/resources/img/favicon.png" />" rel="icon">
-    <link href="<c:url value="/resources/img/apple-touch-icon.png" />" rel="apple-touch-icon">
-<%--    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">--%>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-
-    <link href="<c:url value="/resources/vendor/icofont/icofont.min.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/boxicons/css/boxicons.min.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/remixicon/remixicon.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/venobox/venobox.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/owl.carousel/assets/owl.carousel.min.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/vendor/aos/aos.css" />" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: Bethany - v2.2.0
-    * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-</head>
-
-<body>
-
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container">
-        <div class="header-container d-flex align-items-center">
-            <div class="logo mr-auto">
-                <h1 class="text-light align-content-center"><a href="index.html"><span>Khela Computer</span></a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>
-
-            <nav class="nav-menu d-none d-lg-block">
-                <ul>
-                    <li class="active"><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li class="drop-down"><a href="">Drop Down</a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="drop-down"><a href="#">Drop Down 2</a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                            <li><a href="#">Drop Down 5</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-
-                    <li class="get-started"><a href="#about">Get Started</a></li>
-                </ul>
-            </nav><!-- .nav-menu -->
-        </div><!-- End Header Container -->
-    </div>
-</header><!-- End Header -->
-
+<jsp:include page="header.jsp"></jsp:include>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
@@ -98,40 +14,56 @@
 
 <main id="main">
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    <section id="services" class="services section-bg">
         <div class="container">
 
             <div class="row">
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="<c:url value="/resources/img/clients/client-1.png" />" class="img-fluid" alt="">
+                <div class="col-lg-4">
+                    <div class="section-title" data-aos="fade-right">
+                        <h2>Services</h2>
+                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    </div>
                 </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-stretch">
+                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                                <h4><a href="order.html">Poster</a></h4>
+                                <p>Print any kind of poster here.</p>
+                            </div>
+                        </div>
 
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="<c:url value="/resources/img/clients/client-2.png" />" class="img-fluid" alt="">
+                        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="icon"><i class="bx bx-file"></i></div>
+                                <h4><a href="">Sed ut perspiciatis</a></h4>
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex align-items-stretch mt-4">
+                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                                <h4><a href="">Magni Dolores</a></h4>
+                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex align-items-stretch mt-4">
+                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="icon"><i class="bx bx-world"></i></div>
+                                <h4><a href="">Nemo Enim</a></h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="<c:url value="/resources/img/clients/client-3.png" />" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="<c:url value="/resources/img/clients/client-4.png" />" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
-                    <img src="<c:url value="/resources/img/clients/client-5.png" />" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
-                    <img src="<c:url value="/resources/img/clients/client-6.png" />" class="img-fluid" alt="">
-                </div>
-
             </div>
 
         </div>
-    </section><!-- End Clients Section -->
+    </section><!-- End Services Section -->
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -257,56 +189,7 @@
     </section><!-- End Cta Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-        <div class="container">
 
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="section-title" data-aos="fade-right">
-                        <h2>Services</h2>
-                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-md-6 d-flex align-items-stretch">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                <h4><a href="">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="icon"><i class="bx bx-file"></i></div>
-                                <h4><a href="">Sed ut perspiciatis</a></h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="icon"><i class="bx bx-tachometer"></i></div>
-                                <h4><a href="">Magni Dolores</a></h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="icon"><i class="bx bx-world"></i></div>
-                                <h4><a href="">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End Services Section -->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -536,97 +419,7 @@
             </div>
 
         </div>
-    </section><!-- End Testimonials Section -->
-
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="section-title" data-aos="fade-right">
-                        <h2>Team</h2>
-                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
-
-                        <div class="col-lg-6">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="pic"><img src="<c:url value="/resources/img/team/team-1.jpg" />" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
-                                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mt-4 mt-lg-0">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="pic"><img src="<c:url value="/resources/img/team/team-2.jpg" />" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
-                                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mt-4">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="pic"><img src="<c:url value="/resources/img/team/team-3.jpg" />" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
-                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mt-4">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="pic"><img src="<c:url value="/resources/img/team/team-4.jpg" />" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End Team Section -->
+    </section>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -794,3 +587,129 @@
 </body>
 
 </html>
+
+
+<!-- ======= Team Section ======= -->
+<%--    <section id="team" class="team">--%>
+<%--        <div class="container">--%>
+
+<%--            <div class="row">--%>
+<%--                <div class="col-lg-4">--%>
+<%--                    <div class="section-title" data-aos="fade-right">--%>
+<%--                        <h2>Team</h2>--%>
+<%--                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-8">--%>
+<%--                    <div class="row">--%>
+
+<%--                        <div class="col-lg-6">--%>
+<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="100">--%>
+<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-1.jpg" />" class="img-fluid" alt=""></div>--%>
+<%--                                <div class="member-info">--%>
+<%--                                    <h4>Walter White</h4>--%>
+<%--                                    <span>Chief Executive Officer</span>--%>
+<%--                                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>--%>
+<%--                                    <div class="social">--%>
+<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
+<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-lg-6 mt-4 mt-lg-0">--%>
+<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="200">--%>
+<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-2.jpg" />" class="img-fluid" alt=""></div>--%>
+<%--                                <div class="member-info">--%>
+<%--                                    <h4>Sarah Jhonson</h4>--%>
+<%--                                    <span>Product Manager</span>--%>
+<%--                                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>--%>
+<%--                                    <div class="social">--%>
+<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
+<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-lg-6 mt-4">--%>
+<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="300">--%>
+<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-3.jpg" />" class="img-fluid" alt=""></div>--%>
+<%--                                <div class="member-info">--%>
+<%--                                    <h4>William Anderson</h4>--%>
+<%--                                    <span>CTO</span>--%>
+<%--                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>--%>
+<%--                                    <div class="social">--%>
+<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
+<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-lg-6 mt-4">--%>
+<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="400">--%>
+<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-4.jpg" />" class="img-fluid" alt=""></div>--%>
+<%--                                <div class="member-info">--%>
+<%--                                    <h4>Amanda Jepson</h4>--%>
+<%--                                    <span>Accountant</span>--%>
+<%--                                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>--%>
+<%--                                    <div class="social">--%>
+<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
+<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
+<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                    </div>--%>
+
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--        </div>--%>
+<%--    </section>--%>
+
+
+<%--<section id="clients" class="clients">--%>
+<%--    <div class="container">--%>
+
+<%--        <div class="row">--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-1.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-2.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-3.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-4.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-5.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">--%>
+<%--                <img src="<c:url value="/resources/img/clients/client-6.png" />" class="img-fluid" alt="">--%>
+<%--            </div>--%>
+
+<%--        </div>--%>
+
+<%--    </div>--%>
+<%--</section>--%>
