@@ -15,9 +15,5 @@ public class HomeController {
 
         return "index";
     }
-    @RequestMapping("/order.html")
-    public String orderForm(){
 
-        return "orderforms/orderform";
-    }
 }
