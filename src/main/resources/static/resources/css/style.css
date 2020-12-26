@@ -4,7 +4,6 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -86,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header .logo {
   overflow: hidden;
-  padding: 16px 30px 12px 30px;
+  /*padding: 16px 30px 12px 30px;*/
   background: #009970;
 }
 
@@ -376,13 +375,13 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 40vh;
-  background: url("../img/hero-bg.jpg") center center;
+  /*background: url("../img/hero-bg.jpg") center center;*/
   background-size: cover;
   position: relative;
 }
 
 #hero .container {
-  padding-top: 15px;
+  padding-top: 5px;
 }
 
 #hero:before {

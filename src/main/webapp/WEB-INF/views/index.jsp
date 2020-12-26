@@ -3,15 +3,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:include page="header.jsp"></jsp:include>
-<script></script>
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-    <div class="container text-center position-absolute" data-aos="fade-in" data-aos-delay="200">
-        <h1>Your New Online Presence with Khela Computer</h1>
-        <h2>We are a team of professionals at your service.</h2>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+
+<section id="hero">
+    <div class="container ct">
+
+        <div >
+            <h1 style="text-align:center;">Your New Online Presence with Khela Computer</h1>
+            <h2 style="text-align:center;">We are a team of professionals at your service.</h2>
+        </div>
+
     </div>
-</section><!-- End Hero -->
+</section>
 
 <main id="main">
 
@@ -586,132 +588,19 @@
 
 <script src="<c:url value="/resources/js/main.js" />"></script>
 
+<script src="<c:url value="/resources/js/easy_background.js"/>"></script>
+
+<script>
+    easy_background("#hero",
+
+        {
+            slide: ["img/crest.jpg", "img/Book print.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"],
+
+            delay: [2000, 2000, 2000, 2000, 2000]
+        }
+    );
+</script>
+
 </body>
 
 </html>
-
-
-<!-- ======= Team Section ======= -->
-<%--    <section id="team" class="team">--%>
-<%--        <div class="container">--%>
-
-<%--            <div class="row">--%>
-<%--                <div class="col-lg-4">--%>
-<%--                    <div class="section-title" data-aos="fade-right">--%>
-<%--                        <h2>Team</h2>--%>
-<%--                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-8">--%>
-<%--                    <div class="row">--%>
-
-<%--                        <div class="col-lg-6">--%>
-<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="100">--%>
-<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-1.jpg" />" class="img-fluid" alt=""></div>--%>
-<%--                                <div class="member-info">--%>
-<%--                                    <h4>Walter White</h4>--%>
-<%--                                    <span>Chief Executive Officer</span>--%>
-<%--                                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>--%>
-<%--                                    <div class="social">--%>
-<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
-<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-lg-6 mt-4 mt-lg-0">--%>
-<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="200">--%>
-<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-2.jpg" />" class="img-fluid" alt=""></div>--%>
-<%--                                <div class="member-info">--%>
-<%--                                    <h4>Sarah Jhonson</h4>--%>
-<%--                                    <span>Product Manager</span>--%>
-<%--                                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>--%>
-<%--                                    <div class="social">--%>
-<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
-<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-lg-6 mt-4">--%>
-<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="300">--%>
-<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-3.jpg" />" class="img-fluid" alt=""></div>--%>
-<%--                                <div class="member-info">--%>
-<%--                                    <h4>William Anderson</h4>--%>
-<%--                                    <span>CTO</span>--%>
-<%--                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>--%>
-<%--                                    <div class="social">--%>
-<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
-<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                        <div class="col-lg-6 mt-4">--%>
-<%--                            <div class="member" data-aos="zoom-in" data-aos-delay="400">--%>
-<%--                                <div class="pic"><img src="<c:url value="/resources/img/team/team-4.jpg" />" class="img-fluid" alt=""></div>--%>
-<%--                                <div class="member-info">--%>
-<%--                                    <h4>Amanda Jepson</h4>--%>
-<%--                                    <span>Accountant</span>--%>
-<%--                                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>--%>
-<%--                                    <div class="social">--%>
-<%--                                        <a href=""><i class="ri-twitter-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-facebook-fill"></i></a>--%>
-<%--                                        <a href=""><i class="ri-instagram-fill"></i></a>--%>
-<%--                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--        </div>--%>
-<%--    </section>--%>
-
-
-<%--<section id="clients" class="clients">--%>
-<%--    <div class="container">--%>
-
-<%--        <div class="row">--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-1.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-2.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-3.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-4.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-5.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">--%>
-<%--                <img src="<c:url value="/resources/img/clients/client-6.png" />" class="img-fluid" alt="">--%>
-<%--            </div>--%>
-
-<%--        </div>--%>
-
-<%--    </div>--%>
-<%--</section>--%>
