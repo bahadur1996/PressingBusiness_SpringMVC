@@ -5,7 +5,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <section id="hero">
-    <div class="container ct">
+    <div class="container">
 
         <div >
             <h1 style="text-align:center;">Your New Online Presence with Khela Computer</h1>
@@ -18,53 +18,118 @@
 <main id="main">
 
     <section id="services" class="services section-bg">
+
         <div class="container">
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="section-title" data-aos="fade-right">
-                        <h2>Services</h2>
-                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Services1</h2>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                            <h4><a href="order.html">Press</a></h4>
+                            <p><a href="order.html">Visiting card </a>|
+                                <a href="order.html"> Pad </a>|<a href="order.html">Leaflet </a>|</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-md-6 d-flex align-items-stretch">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                <h4><a href="order.html">Press</a></h4>
-                                <p><a href="order.html">Visiting card </a>|
-                                    <a href="order.html"> Pad </a>|<a href="order.html">Leaflet </a>|</p>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="icon"><i class="bx bx-file"></i></div>
-                                <h4><a href="">2</a></h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                            </div>
+                    <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="icon"><i class="bx bx-file"></i></div>
+                            <h4><a href="">2</a></h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
                         </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="icon"><i class="bx bx-tachometer"></i></div>
-                                <h4><a href="">2</a></h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="icon"><i class="bx bx-world"></i></div>
-                                <h4><a href="">3</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                            <h4><a href="order.html">Press</a></h4>
+                            <p><a href="order.html">Visiting card </a>|
+                                <a href="order.html"> Pad </a>|<a href="order.html">Leaflet </a>|</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="icon"><i class="bx bx-file"></i></div>
+                            <h4><a href="">2</a></h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                            <h4><a href="order.html">Press</a></h4>
+                            <p><a href="order.html">Visiting card </a>|
+                                <a href="order.html"> Pad </a>|<a href="order.html">Leaflet </a>|</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                        <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="icon"><i class="bx bx-file"></i></div>
+                            <h4><a href="">2</a></h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<%--            <div class="row">--%>
+<%--                <div class="col-lg-4">--%>
+<%--                    <div class="section-title" data-aos="fade-right">--%>
+<%--                        <h2>Services</h2>--%>
+<%--                        <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-8">--%>
+<%--                    <div class="row">--%>
+<%--                        <div class="col-md-6 d-flex align-items-stretch">--%>
+<%--                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">--%>
+<%--                                <div class="icon"><i class="bx bxl-dribbble"></i></div>--%>
+<%--                                <h4><a href="order.html">Press</a></h4>--%>
+<%--                                <p><a href="order.html">Visiting card </a>|--%>
+<%--                                    <a href="order.html"> Pad </a>|<a href="order.html">Leaflet </a>|</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">--%>
+<%--                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">--%>
+<%--                                <div class="icon"><i class="bx bx-file"></i></div>--%>
+<%--                                <h4><a href="">2</a></h4>--%>
+<%--                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-md-6 d-flex align-items-stretch mt-4">--%>
+<%--                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">--%>
+<%--                                <div class="icon"><i class="bx bx-tachometer"></i></div>--%>
+<%--                                <h4><a href="">2</a></h4>--%>
+<%--                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="col-md-6 d-flex align-items-stretch mt-4">--%>
+<%--                            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">--%>
+<%--                                <div class="icon"><i class="bx bx-world"></i></div>--%>
+<%--                                <h4><a href="">3</a></h4>--%>
+<%--                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
         </div>
     </section><!-- End Services Section -->
@@ -490,9 +555,8 @@
             </div>
 
         </div>
-    </section><!-- End Contact Section -->
-
-</main><!-- End #main -->
+    </section>
+</main>
 
 <!-- ======= Footer ======= -->
 <footer id="footer">

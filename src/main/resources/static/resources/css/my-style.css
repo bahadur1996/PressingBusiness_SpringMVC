@@ -1,0 +1,56 @@
+input[type=checkbox]
+{
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    padding: 10px;
+    margin-top: 30px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+    /* Checkbox text */
+    font-weight: bold;
+    margin-left: 15px;
+    display: inline;
+}
+
+.pb-modalreglog-container
+{
+    margin-top: 100px;
+}
+
+.pb-modalreglog-legend
+{
+    text-align: center;
+}
+
+.pb-modalreglog-input-group
+{
+    margin: auto;
+}
+
+.pb-modalreglog-submit
+{
+    margin-left: 5px;
+}
+
+.pb-modalreglog-form-reg
+{
+    text-align: center;
+}
+
+.pb-modalreglog-footer p
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pb-modalreglog-progressbar
+{
+    border-radius: 2px;
+}

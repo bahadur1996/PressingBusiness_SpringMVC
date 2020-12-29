@@ -47,7 +47,7 @@ function easy_background(selector, sld_args) {
   //add various style on selector
   document.querySelector(selector).style.backgroundSize = "cover";
   document.querySelector(selector).style.backgroundRepeat = "no-repeat";
-  document.querySelector(selector).style.backgroundPosition = "center center";
+  document.querySelector(selector).style.backgroundPosition = "top top";
 
 
   setTimeout(function() {
