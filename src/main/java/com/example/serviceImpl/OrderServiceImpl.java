@@ -45,6 +45,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getAllOrders() {
-        return null;
+
+        return orderMapper.listEntityToListDomain(orderRepository.findAll());
     }
 }
