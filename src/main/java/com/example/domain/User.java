@@ -1,17 +1,13 @@
-package com.example.entity;
+package com.example.domain;
 
-import javax.persistence.*;
+import com.example.entity.Role;
+
 import java.util.Set;
 
-@Entity
-@Table(name = "user",schema = "public")
-public class UserEntity extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+public class User {
     private Long id;
     private String firstName;
     private String lastName;
-    @Column(unique = true)
     private String email;
     private String mobile;
     private String address;
@@ -19,21 +15,13 @@ public class UserEntity extends BaseEntity {
     private Boolean enabled;
     private Boolean tokenExpired;
     private String password;
-
-    @ManyToMany
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
 
     public Long getId() {
         return id;
     }
 
-    public UserEntity setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
         return this;
     }
@@ -42,7 +30,7 @@ public class UserEntity extends BaseEntity {
         return firstName;
     }
 
-    public UserEntity setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -51,7 +39,7 @@ public class UserEntity extends BaseEntity {
         return lastName;
     }
 
-    public UserEntity setLastName(String lastName) {
+    public User setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -60,7 +48,7 @@ public class UserEntity extends BaseEntity {
         return email;
     }
 
-    public UserEntity setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -69,7 +57,7 @@ public class UserEntity extends BaseEntity {
         return mobile;
     }
 
-    public UserEntity setMobile(String mobile) {
+    public User setMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
@@ -78,7 +66,7 @@ public class UserEntity extends BaseEntity {
         return address;
     }
 
-    public UserEntity setAddress(String address) {
+    public User setAddress(String address) {
         this.address = address;
         return this;
     }
@@ -87,7 +75,7 @@ public class UserEntity extends BaseEntity {
         return country;
     }
 
-    public UserEntity setCountry(String country) {
+    public User setCountry(String country) {
         this.country = country;
         return this;
     }
@@ -96,7 +84,7 @@ public class UserEntity extends BaseEntity {
         return enabled;
     }
 
-    public UserEntity setEnabled(Boolean enabled) {
+    public User setEnabled(Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -105,7 +93,7 @@ public class UserEntity extends BaseEntity {
         return tokenExpired;
     }
 
-    public UserEntity setTokenExpired(Boolean tokenExpired) {
+    public User setTokenExpired(Boolean tokenExpired) {
         this.tokenExpired = tokenExpired;
         return this;
     }
@@ -114,7 +102,7 @@ public class UserEntity extends BaseEntity {
         return password;
     }
 
-    public UserEntity setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -123,7 +111,7 @@ public class UserEntity extends BaseEntity {
         return roles;
     }
 
-    public UserEntity setRoles(Set<Role> roles) {
+    public User setRoles(Set<Role> roles) {
         this.roles = roles;
         return this;
     }
