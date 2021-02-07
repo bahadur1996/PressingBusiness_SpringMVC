@@ -39,6 +39,8 @@ public class HomeController {
         model.addAttribute("services",productService.getAllProducts());
         model.addAttribute("prices",priceService.getAllPrices());
 
+        
+
         return "admin";
     }
 
