@@ -43,14 +43,14 @@ public class SetupDataLoader implements
         if (alreadySetup || userRepository.findByEmail("test@test.com")!=null)
             return;
         Privilege readPrivilege
-                = createPrivilegeIfNotFound("READ_PRIVILEGE");
+                = createPrivilegeIfNotFound("READ");
         Privilege writePrivilege
-                = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+                = createPrivilegeIfNotFound("WRITE");
 
-        createRoleIfNotFound("ROLE_ADMIN", Stream.of(readPrivilege,writePrivilege).collect(Collectors.toSet()));
-        createRoleIfNotFound("ROLE_USER", Stream.of(readPrivilege).collect(Collectors.toSet()));
+        createRoleIfNotFound("ADMIN", Stream.of(readPrivilege,writePrivilege).collect(Collectors.toSet()));
+        createRoleIfNotFound("USER", Stream.of(readPrivilege).collect(Collectors.toSet()));
 
-        Role adminRole = roleRepository.findByRoleName("ROLE_ADMIN");
+        Role adminRole = roleRepository.findByRoleName("ADMIN");
         UserEntity user = new UserEntity();
         user.setFirstName("Test");
         user.setLastName("Test");

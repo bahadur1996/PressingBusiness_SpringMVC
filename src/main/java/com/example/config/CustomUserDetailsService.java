@@ -3,7 +3,7 @@ package com.example.config;
 import com.example.entity.Privilege;
 import com.example.entity.Role;
 import com.example.entity.UserEntity;
-import com.example.repository.RoleRepository;
+import com.example.mapper.UserMapper;
 import com.example.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,11 +22,11 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
 
         private final UserRepository userRepository;
-        private final RoleRepository roleRepository;
+        private final UserMapper userMapper;
 
-    public CustomUserDetailsService(UserRepository userRepository, RoleRepository roleRepository) {
+    public CustomUserDetailsService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+        this.userMapper = userMapper;
     }
 
 
@@ -39,18 +39,16 @@ public class CustomUserDetailsService implements UserDetailsService {
             return null;
         }
 
-        return new org.springframework.security.core.userdetails.User(
-                user.getEmail(), user.getPassword(), user.getEnabled(), true, true,
-                true, getAuthorities(user.getRoles()));
+        return userMapper.entityToDomain().map(user);
     }
 
-        private Collection<? extends GrantedAuthority> getAuthorities(
+    private Collection<? extends GrantedAuthority> getAuthorities(
                 Collection<Role> roles) {
 
             return getGrantedAuthorities(getPrivileges(roles));
-        }
+    }
 
-        private List<String> getPrivileges(Collection<Role> roles) {
+    private List<String> getPrivileges(Collection<Role> roles) {
 
             List<String> privileges = new ArrayList<>();
             List<Privilege> collection = new ArrayList<>();
@@ -61,13 +59,13 @@ public class CustomUserDetailsService implements UserDetailsService {
                 privileges.add(item.getName());
             }
             return privileges;
-        }
+    }
 
-        private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) {
+    private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) {
             List<GrantedAuthority> authorities = new ArrayList<>();
             for (String privilege : privileges) {
                 authorities.add(new SimpleGrantedAuthority(privilege));
             }
             return authorities;
-        }
+    }
 }

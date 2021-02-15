@@ -14,7 +14,7 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private Set<UserEntity> users;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "roles_privileges",
             joinColumns = @JoinColumn(

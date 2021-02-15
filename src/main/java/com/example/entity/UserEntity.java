@@ -1,7 +1,9 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user",schema = "public")
@@ -20,7 +22,7 @@ public class UserEntity extends BaseEntity {
     private Boolean tokenExpired;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
@@ -121,6 +123,11 @@ public class UserEntity extends BaseEntity {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public Set<String> getRoleNames() {
+
+        return roles.stream().map(role -> role.getRoleName()).collect(Collectors.toSet());
     }
 
     public UserEntity setRoles(Set<Role> roles) {
