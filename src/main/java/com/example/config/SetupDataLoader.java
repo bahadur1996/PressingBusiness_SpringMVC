@@ -40,7 +40,7 @@ public class SetupDataLoader implements
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        if (alreadySetup || userRepository.findByEmail("test@test.com")!=null)
+        if (alreadySetup)
             return;
         Privilege readPrivilege
                 = createPrivilegeIfNotFound("READ");
@@ -58,6 +58,7 @@ public class SetupDataLoader implements
         user.setEmail("test@test.com");
         user.setRoles(Stream.of(adminRole).collect(Collectors.toSet()));
         user.setEnabled(true);
+        if(userRepository.findByEmail("test@test.com")==null)
         userRepository.save(user);
 
         alreadySetup = true;
