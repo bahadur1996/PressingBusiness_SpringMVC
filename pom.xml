@@ -6,7 +6,13 @@
 	<groupId>com.khela</groupId>
 	<artifactId>computer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+    <modules>
+        <module>Khela-API</module>
+        <module>Khela-IMPL</module>
+        <module>khela-DB</module>
+        <module>Khela-WEB</module>
+    </modules>
+    <packaging>pom</packaging>
 
 	<name>Khela computer</name>
 	<description>Khela computer web application</description>
@@ -77,6 +83,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
