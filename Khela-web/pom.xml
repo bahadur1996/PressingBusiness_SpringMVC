@@ -12,7 +12,10 @@
     <groupId>com.khela</groupId>
     <artifactId>Khela-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
     <dependencies>
+
         <dependency>
             <groupId>com.khela</groupId>
             <artifactId>Khela-API</artifactId>

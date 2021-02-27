@@ -5,8 +5,6 @@ import com.khela.domain.User;
 import com.khela.entity.RoleEntity;
 import com.khela.entity.UserEntity;
 import com.khela.utils.Mapper;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,7 +14,11 @@ import java.util.Set;
 @Component
 public class UserMapper {
 
-    private static ModelMapper modelMapper= new ModelMapper();
+    private final RoleMapper roleMapper;
+
+    public UserMapper(RoleMapper roleMapper) {
+        this.roleMapper = roleMapper;
+    }
 
     public Mapper<UserEntity, User> entityToDomain(){
         return entity->new User()
@@ -30,7 +32,7 @@ public class UserMapper {
                 .setEnabled(entity.getEnabled())
                 .setTokenExpired(entity.getTokenExpired())
                 .setPassword(entity.getPassword())
-                .setRoles(getRoleDomains(entity.getRoleEntities()));
+                .setRoles(roleMapper.listEntityToListDomain(entity.getRoleEntities()));
     }
     public Mapper<User,UserEntity> domainToEntity(){
         return domain->new UserEntity()
@@ -44,23 +46,7 @@ public class UserMapper {
                 .setEnabled(domain.getEnabled())
                 .setTokenExpired(domain.getTokenExpired())
                 .setPassword(domain.getPassword())
-                .setRoleEntities(getRoleEntities(domain.getRoles()));
-    }
-
-    public Set<Role> getRoleDomains(Set<RoleEntity> roleEntities){
-        Set<Role> roles = new HashSet();
-        for(RoleEntity roleEntity : roleEntities){
-            roles.add(modelMapper.map(roleEntity,Role.class));
-        }
-       return roles;
-    }
-
-    public Set<RoleEntity> getRoleEntities(Set<Role> roles){
-        Set<RoleEntity> roleEntities = new HashSet();
-        for(Role role : roles){
-            roleEntities.add(modelMapper.map(role,RoleEntity.class));
-        }
-        return roleEntities;
+                .setRoleEntities(roleMapper.listDomainToListEntity(domain.getRoles()));
     }
 
     public List<User> listEntityToListDomain(List<UserEntity> productEntities){

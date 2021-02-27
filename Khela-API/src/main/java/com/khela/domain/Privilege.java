@@ -8,7 +8,7 @@ public class Privilege {
 
     private String name;
 
-    private Set<Role> roleEntities;
+    private Set<Role> roles;
 
     public Long getId() {
         return id;
@@ -28,12 +28,12 @@ public class Privilege {
         return this;
     }
 
-    public Set<Role> getRoleEntities() {
-        return roleEntities;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public Privilege setRoleEntities(Set<Role> roleEntities) {
-        this.roleEntities = roleEntities;
+    public Privilege setRoles(Set<Role> roles) {
+        this.roles = roles;
         return this;
     }
 }
