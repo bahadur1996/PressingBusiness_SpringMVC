@@ -37,14 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .anyRequest().authenticated()
                     .and()
-                    .formLogin().permitAll()
-                    .and()
-                    .logout(logout -> logout
-                            .permitAll()
-                            .logoutSuccessHandler((request, response, authentication) -> {
-                                        response.setStatus(HttpServletResponse.SC_OK);
-                                    }
-                            ).logoutSuccessUrl("/"));
+                    .formLogin().permitAll();
+//                    .logout(logout -> logout
+//                            .permitAll()
+//                            .logoutSuccessHandler((request, response, authentication) -> {
+//                                        response.setStatus(HttpServletResponse.SC_OK);
+//                                    }
+//                            ).logoutSuccessUrl("/"));
 //                    .and()
 //                    .exceptionHandling().accessDeniedPage("/403")
 //            ;
