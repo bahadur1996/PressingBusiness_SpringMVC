@@ -2,8 +2,6 @@ package com.khela.service;
 
 
 import com.khela.domain.Price;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 public interface PriceService {
