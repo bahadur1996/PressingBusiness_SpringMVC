@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <c:url var="saveOrder" value="/rest/order"/>
 
 <html>
@@ -149,10 +152,11 @@
 
     </div>
 <jsp:include page="registration-form.jsp"/>
-<%--all scripts goes here--%>
+</body>
+</html>
+<%--all scripts go here--%>
 <script>
     function submit(){
-
 
         var formData ={
             customerName: $('#customerName').val(),
@@ -172,12 +176,18 @@
             bindingRequired : getCheckBoxStatus("bindingRequired"),
             deliveryDate :  $('#deliveryDate').val(),
         }
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
         $.ajax({
             url: '${saveOrder}',
             method: "POST",
             data: JSON.stringify(formData),
             dataType: 'json',
             contentType: "application/json",
+            beforeSend : function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
             success: function(result,status,jqXHR ) {
                 $('#registrationModal').modal('hide');
             }
@@ -185,15 +195,13 @@
 
     }
     function getCheckBoxStatus(id){
-       return document.getElementById(id).checked ? true : false;
+        return document.getElementById(id).checked ? true : false;
     }
     function showModal(){
 
         $('#registrationModal').modal('toggle');
     }
 </script>
-
-
 
 <script>
     $( document ).ready(function() {
@@ -208,7 +216,3 @@
     });
 </script>
 
-
-
-</body>
-</html>
