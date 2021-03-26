@@ -60,6 +60,7 @@
 
     </div>
 </div>
+<jsp:include page="registration-form.jsp"/>
 <div style="height: 12%;width: 100%;background-color: #2b669a;">
 
 </div>
