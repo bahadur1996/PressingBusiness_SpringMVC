@@ -1,6 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -113,41 +114,12 @@
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
-
     </div>
-  <jsp:include page="registration-form.jsp"/>
   </body>
 </html>
 <script>
     function showModal(){
         $('#registrationModal').modal('toggle');
     }
-    function submit(){
 
-        var formData ={
-            id: null,
-            firstName : $('#firstName').val(),
-            lastName : $('#lastName').val(),
-            email :  $('#emailRegistration').val(),
-            mobile : $('#mobile').val(),
-            password : $('#password').val()
-        }
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
-
-        $.ajax({
-            url: '${saveOrder}',
-            method: "POST",
-            data: JSON.stringify(formData),
-            dataType: 'json',
-            contentType: "application/json",
-            beforeSend : function(xhr){
-                xhr.setRequestHeader(header,token);
-            },
-            success: function(result,status,jqXHR ) {
-                $('#registrationModal').modal('hide');
-            }
-        });
-
-    }
 </script>
