@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Long addUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword())).setEnabled(true);
         return userRepository.save(userMapper.domainToEntity().map(user)).getId();
     }
 
@@ -45,6 +45,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userMapper.listEntityToListDomain(userRepository.findAll());
     }
 }
