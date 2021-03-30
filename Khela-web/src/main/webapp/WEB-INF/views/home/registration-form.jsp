@@ -12,8 +12,7 @@
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
 <c:url var="saveUser" value="/rest/public/signup"/>
-
-
+<c:url var="saveUser" value="/logout"/>
             <div class="modal fade" id="loginModal" tabindex="-1" roleEntity="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" roleEntity="document">
                     <div class="modal-content">
@@ -23,31 +22,35 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel">Login form</h4>
                         </div>
+                        <form method="post" action="/rest/public/perform_login" >
                         <div class="modal-body">
+
                                 <div class="form-group">
-                                    <label for="email">Email address</label>
+                                    <label for="username">Email/Username</label>
                                     <div class="input-group pb-modalreglog-input-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Email/Username">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <div class="input-group pb-modalreglog-input-group">
-                                        <input type="password" class="form-control" id="pws" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     </div>
                                 </div>
                         </div>
-                        <div class="modal-footer">
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}"/>
+                            <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Log in</button>
+                            <input type="submit" class="btn btn-primary"/>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="modal fade" id="registrationModal" tabindex="-1" roleEntity="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" roleEntity="document">
@@ -59,7 +62,6 @@
                             <h4 class="modal-title" id="registrationModalLabel">Please tell us who you are!</h4>
                         </div>
                         <div class="modal-body">
-<%--                            <form class="pb-modalreglog-form-reg">--%>
                                 <div class="form-group">
                                     <div id="pb-modalreglog-progressbar"></div>
                                 </div>
@@ -96,7 +98,7 @@
                                 <div class="row form-group">
                                     <div class="col-lg-6">
                                         <label class="control-label">Password</label>
-                                        <input type="password" name = "password" id="password" class="form-control" placeholder="Password"/>
+                                        <input type="password" name = "password" id="registrationPassword" class="form-control" placeholder="Password"/>
                                     </div>
                                     <div class="col-lg-6">
                                         <label class="control-label">Account type</label>
@@ -107,7 +109,6 @@
                                         </select>
                                     </div>
                                 </div>
-<%--                            </form>--%>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -121,11 +122,18 @@
 <script>
     function closeModal(){
         $('#registrationModal').modal('hide');
+        $('#loginModal').modal('hide');
     }
+    function showModal(){
+        $('#registrationModal').modal('toggle');
+    }
+    function showLoginForm(){
+        $('#loginModal').modal('toggle');
+    }
+
     function submit(){
 
         var formData ={
-            id: null,
             firstName : $('#firstName').val(),
             lastName : $('#lastName').val(),
             email :  $('#emailRegistration').val(),
@@ -136,7 +144,7 @@
         }
 
         var url = '${saveUser}'+'?roleName='+$('#role').val();
-        console.log($('#role').val());
+
         $.ajax({
             url: url,
             method: "POST",
@@ -153,4 +161,24 @@
         });
 
     }
+    // function login() {
+    //     var formData ={
+    //         username : $('#username').val(),
+    //         password : $('#password').val(),
+    //         csrf:token
+    //     }
+    //     var token = $("meta[name='_csrf']").attr("content");
+    //     var header = $("meta[name='_csrf_header']").attr("content");
+    //     $.ajax({
+    //         url: '/login',
+    //         method: "POST",
+    //         data: JSON.stringify(formData),
+    //         dataType: 'json',
+    //         contentType: "application/json",
+    //         success: function(result,status,jqXHR ) {
+    //             location.reload();
+    //         }
+    //     });
+    //
+    // }
 </script>

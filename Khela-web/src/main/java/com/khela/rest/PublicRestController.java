@@ -33,46 +33,13 @@ public class PublicRestController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Long> addUser(@RequestBody User user, @RequestParam("roleName") Long roleName){
+    public ResponseEntity<Long> addUser(@RequestBody User user, @RequestParam("roleName") String roleName){
         Role role = roleService.getRoleDetails(roleName);
         user.setRoles(Stream.of(role).collect(Collectors.toSet()));
         return ResponseEntity.ok(userService.addUser(user));
     }
-    @GetMapping("/hamja")
+    @PostMapping("/rest/public/perform_login")
     public ResponseEntity<?> test(){
         return ResponseEntity.ok("Okay");
-    }
-}
-class AccessDeniedFilter extends GenericFilterBean {
-
-    @Override
-    public void doFilter(
-            ServletRequest request,
-            ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-
-        try {
-            filterChain.doFilter(request, response);
-        } catch (Exception e) {
-
-            if (e instanceof NestedServletException &&
-                    ((NestedServletException) e).getRootCause() instanceof AccessDeniedException) {
-
-                HttpServletRequest rq = (HttpServletRequest) request;
-                HttpServletResponse rs = (HttpServletResponse) response;
-
-                if (isAjax(rq)) {
-                    rs.sendError(HttpStatus.FORBIDDEN.value());
-                } else {
-                    rs.sendRedirect("/#sign-in");
-                }
-            }
-        }
-    }
-
-    private Boolean isAjax(HttpServletRequest request) {
-        return request.getContentType() != null &&
-                request.getContentType().contains("application/json") &&
-                request.getRequestURI() != null &&
-                (request.getRequestURI().contains("api") || request.getRequestURI().contains("rest"));
     }
 }

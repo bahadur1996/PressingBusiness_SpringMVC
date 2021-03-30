@@ -4,15 +4,12 @@ package com.khela.controller;
 import com.khela.service.OrderService;
 import com.khela.service.PriceService;
 import com.khela.service.ProductService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class HomeController {
@@ -31,7 +28,8 @@ public class HomeController {
 
 
     @RequestMapping("/")
-    public String home(){
+    public String home(Model model, @RequestParam(value = "toLogin",required = false) Boolean toLogin){
+        model.addAttribute("toLogin",toLogin);
         return "home/home";
 }
     @RequestMapping("/index.html")

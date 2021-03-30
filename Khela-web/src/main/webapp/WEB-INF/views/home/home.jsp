@@ -117,9 +117,3 @@
     </div>
   </body>
 </html>
-<script>
-    function showModal(){
-        $('#registrationModal').modal('toggle');
-    }
-
-</script>
