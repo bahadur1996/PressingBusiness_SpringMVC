@@ -4,6 +4,7 @@ package com.khela.controller;
 import com.khela.service.OrderService;
 import com.khela.service.PriceService;
 import com.khela.service.ProductService;
+import com.khela.utils.AuthenticationManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -30,13 +31,9 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model, @RequestParam(value = "toLogin",required = false) Boolean toLogin){
         model.addAttribute("toLogin",toLogin);
+
         return "home/home";
 }
-    @RequestMapping("/index.html")
-    public String index(){
-
-        return "index";
-    }
     @RequestMapping("/admin/admin.html")
     public String admin(ModelMap model){
 

@@ -12,7 +12,6 @@
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
 <c:url var="saveUser" value="/rest/public/signup"/>
-<c:url var="saveUser" value="/logout"/>
             <div class="modal fade" id="loginModal" tabindex="-1" roleEntity="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" roleEntity="document">
                     <div class="modal-content">
@@ -22,7 +21,7 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel">Login form</h4>
                         </div>
-                        <form method="post" action="/rest/public/perform_login" >
+                        <form method="post" action="/login" >
                         <div class="modal-body">
 
                                 <div class="form-group">
@@ -161,24 +160,4 @@
         });
 
     }
-    // function login() {
-    //     var formData ={
-    //         username : $('#username').val(),
-    //         password : $('#password').val(),
-    //         csrf:token
-    //     }
-    //     var token = $("meta[name='_csrf']").attr("content");
-    //     var header = $("meta[name='_csrf_header']").attr("content");
-    //     $.ajax({
-    //         url: '/login',
-    //         method: "POST",
-    //         data: JSON.stringify(formData),
-    //         dataType: 'json',
-    //         contentType: "application/json",
-    //         success: function(result,status,jqXHR ) {
-    //             location.reload();
-    //         }
-    //     });
-    //
-    // }
 </script>

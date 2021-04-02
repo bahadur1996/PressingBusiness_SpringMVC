@@ -38,8 +38,5 @@ public class PublicRestController {
         user.setRoles(Stream.of(role).collect(Collectors.toSet()));
         return ResponseEntity.ok(userService.addUser(user));
     }
-    @PostMapping("/rest/public/perform_login")
-    public ResponseEntity<?> test(){
-        return ResponseEntity.ok("Okay");
-    }
+
 }
