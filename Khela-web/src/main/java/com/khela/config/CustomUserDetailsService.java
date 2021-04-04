@@ -1,11 +1,13 @@
 package com.khela.config;
 
+import com.khela.domain.User;
 import com.khela.entity.PrivilegeEntity;
 import com.khela.entity.RoleEntity;
 import com.khela.entity.UserEntity;
 import com.khela.mapper.UserMapper;
 import com.khela.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -31,15 +33,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String email)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         UserEntity user=userRepository.findByEmail(email);
         if (user == null) {
-            return null;
+            throw new UsernameNotFoundException(email) ;
         }
+        UserDetails userDetails = userMapper.entityToDomain().map(user);
 
-        return userMapper.entityToDomain().map(user);
+       return userDetails;
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(

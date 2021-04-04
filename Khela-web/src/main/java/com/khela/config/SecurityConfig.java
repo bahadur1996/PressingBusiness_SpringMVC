@@ -20,40 +20,37 @@ import javax.servlet.http.HttpServletResponse;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-        @Autowired
-        @Qualifier("userDetailsService")
-        private UserDetailsService userDetailsService;
+    @Autowired
+    @Qualifier("userDetailsService")
+    private UserDetailsService userDetailsService;
 
-        @Override
-        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-            auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService);
 
-        }
+    }
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests()
-                    .antMatchers("/","/img/**","/resources/**","/login").permitAll()
-                    .antMatchers("/user/**").hasAnyRole("ADMIN","USER")
-                    .antMatchers("/admin/**").hasAuthority("ADMIN")
-                    .anyRequest().authenticated()
-                    .and()
-                    .formLogin()
-                    .loginPage("/?toLogin=true")
-                    .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("/", true)
-                    .failureUrl("/");
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/","/img/**","/resources/**","/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/rest/public/**").permitAll()
+                .antMatchers("/user/**").hasAnyRole("ADMIN","USER")
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/?toLogin=true")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/", true)
+                .failureUrl("/");
 
-        }
-        @Override
-        public void configure(WebSecurity webSecurity){
-            webSecurity.ignoring().antMatchers(HttpMethod.POST,"/rest/public/**");
-        }
+    }
 
-        @Bean
-        public PasswordEncoder getPasswordEncoder(){
-            return new BCryptPasswordEncoder();
-        }
+    @Bean
+    public PasswordEncoder getPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
 }
