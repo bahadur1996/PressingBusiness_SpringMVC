@@ -40,8 +40,7 @@
                                 </div>
                         </div>
                             <input type="hidden"
-                                   name="${_csrf.parameterName}"
-                                   value="${_csrf.token}"/>
+                                   name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <input type="submit" class="btn btn-primary"/>
@@ -142,7 +141,7 @@
             password : $('#password').val()
         }
 
-        var url = '${saveUser}'+'?roleName='+$('#role').val();
+        var url = '${saveUser}'+'?roleName='+$('#role').val()+'&_csrf='+'${_csrf.token}';
 
         $.ajax({
             url: url,
