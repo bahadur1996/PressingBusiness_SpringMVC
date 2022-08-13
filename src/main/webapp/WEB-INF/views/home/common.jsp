@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.utils.AuthenticationManagerUtil" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 12/29/2020
@@ -38,7 +38,19 @@
                                 <li><a href="#">Digital media</a></li>
                             </ul>
                         </li>
-                        <li><a href="/admin.html">Admin</a></li>
+                        <% if(AuthenticationManagerUtil.isLoggedIn() && AuthenticationManagerUtil.getLoggedInUser().getRoleNames().contains("ADMIN")){ %>
+
+                        <li><a href="/admin/admin.html">Admin</a></li>
+
+                        <li><a href="/logout">Logout</a></li>
+
+                        <% } else if(AuthenticationManagerUtil.isLoggedIn() && !AuthenticationManagerUtil.getLoggedInUser().getRoleNames().contains("ADMIN")) {%>
+
+                        <li><a href="/rest/user/logout">Logout</a></li>
+
+                        <% } else {%>
+                        <li><a href="/login">Login</a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

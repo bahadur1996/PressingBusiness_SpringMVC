@@ -1,10 +1,15 @@
 package com.example.domain;
 
+import com.example.entity.Privilege;
 import com.example.entity.Role;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class User {
+public class User implements UserDetails {
     private Long id;
     private String firstName;
     private String lastName;
@@ -16,6 +21,58 @@ public class User {
     private Boolean tokenExpired;
     private String password;
     private Set<Role> roles;
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        List<String> privileges = new ArrayList<>();
+        privileges.add("ADMIN");
+        List<Privilege> collection = new ArrayList<>();
+        for (Role role : roles) {
+            collection.addAll(role.getPrivileges());
+        }
+        for (Privilege item : collection) {
+            privileges.add(item.getName());
+        }
+
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (String privilege : privileges) {
+            authorities.add(new SimpleGrantedAuthority(privilege));
+        }
+        return authorities;
+
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
 
     public Long getId() {
         return id;
@@ -98,10 +155,6 @@ public class User {
         return this;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public User setPassword(String password) {
         this.password = password;
         return this;
@@ -114,5 +167,10 @@ public class User {
     public User setRoles(Set<Role> roles) {
         this.roles = roles;
         return this;
+    }
+
+    public Set<String> getRoleNames() {
+
+        return roles.stream().map(role -> role.getRoleName()).collect(Collectors.toSet());
     }
 }

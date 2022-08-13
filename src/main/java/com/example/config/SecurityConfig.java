@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -29,9 +31,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().antMatchers("/").permitAll()
-                    .antMatchers("/user").hasAnyRole("USER","ADMIN")
-                    .antMatchers("/admin").hasRole("ADMIN").and().formLogin();
+            http.authorizeRequests()
+                    .antMatchers("/","/public/**").permitAll()
+                    .antMatchers("/user/**").hasAnyRole("ADMIN","USER")
+                    .antMatchers("/admin/**").hasAuthority("ADMIN")
+                    .anyRequest().authenticated()
+                    .and()
+                    .formLogin().permitAll()
+                    .and()
+                    .logout(logout -> logout
+                            .permitAll()
+                            .logoutSuccessHandler((request, response, authentication) -> {
+                                        response.setStatus(HttpServletResponse.SC_OK);
+                                    }
+                            ).logoutSuccessUrl("/"));
+//                    .and()
+//                    .exceptionHandling().accessDeniedPage("/403")
+//            ;
         }
 
         @Bean

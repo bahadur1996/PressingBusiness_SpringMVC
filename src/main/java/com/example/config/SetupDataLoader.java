@@ -40,17 +40,17 @@ public class SetupDataLoader implements
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        if (alreadySetup || userRepository.findByEmail("test@test.com")!=null)
+        if (alreadySetup)
             return;
         Privilege readPrivilege
-                = createPrivilegeIfNotFound("READ_PRIVILEGE");
+                = createPrivilegeIfNotFound("READ");
         Privilege writePrivilege
-                = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+                = createPrivilegeIfNotFound("WRITE");
 
-        createRoleIfNotFound("ROLE_ADMIN", Stream.of(readPrivilege,writePrivilege).collect(Collectors.toSet()));
-        createRoleIfNotFound("ROLE_USER", Stream.of(readPrivilege).collect(Collectors.toSet()));
+        createRoleIfNotFound("ADMIN", Stream.of(readPrivilege,writePrivilege).collect(Collectors.toSet()));
+        createRoleIfNotFound("USER", Stream.of(readPrivilege).collect(Collectors.toSet()));
 
-        Role adminRole = roleRepository.findByRoleName("ROLE_ADMIN");
+        Role adminRole = roleRepository.findByRoleName("ADMIN");
         UserEntity user = new UserEntity();
         user.setFirstName("Test");
         user.setLastName("Test");
@@ -58,6 +58,7 @@ public class SetupDataLoader implements
         user.setEmail("test@test.com");
         user.setRoles(Stream.of(adminRole).collect(Collectors.toSet()));
         user.setEnabled(true);
+        if(userRepository.findByEmail("test@test.com")==null)
         userRepository.save(user);
 
         alreadySetup = true;
