@@ -51,7 +51,8 @@
                         <li><a href='${logOutUrl}'>Logout</a></li>
 
                         <% } else {%>
-                        <li><a href="/login">Login</a></li>
+                        <li><button class="btn btn-primary" onclick="showLoginForm()">Sign in</button></li>
+                        <li><button class="btn btn-primary" onclick="showModal()">Sign up</button></li>
                         <% } %>
                     </ul>
                 </div>
@@ -69,3 +70,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<c:url value="/resources/js/jquery-1.11.3.minjs"/>"><\/script>')</script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script>
+    $( document ).ready(function () {
+        if('${toLogin}'){
+            showLoginForm();
+        }
+    });
+</script>

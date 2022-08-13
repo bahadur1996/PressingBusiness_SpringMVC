@@ -28,15 +28,14 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<String> privileges = new ArrayList<>();
-        privileges.add("ADMIN");
         List<Privilege> collection = new ArrayList<>();
         for (Role role : roles) {
             collection.addAll(role.getPrivileges());
+            privileges.add(role.getRoleName());
         }
         for (Privilege item : collection) {
             privileges.add(item.getName());
         }
-
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (String privilege : privileges) {
             authorities.add(new SimpleGrantedAuthority(privilege));

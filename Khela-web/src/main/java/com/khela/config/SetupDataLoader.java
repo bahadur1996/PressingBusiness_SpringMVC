@@ -60,8 +60,7 @@ public class SetupDataLoader implements
         user.setRoleEntities(Stream.of(adminRole).collect(Collectors.toSet()));
         user.setEnabled(true);
         if(userRepository.findByEmail("test@test.com")==null)
-        userRepository.save(user);
-
+               userRepository.save(user);
         alreadySetup = true;
     }
 

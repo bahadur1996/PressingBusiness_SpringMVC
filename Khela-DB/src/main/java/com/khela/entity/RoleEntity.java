@@ -9,10 +9,8 @@ public class RoleEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String roleName;
 
-    @ManyToMany(mappedBy = "roleEntities")
-    private Set<UserEntity> users;
+    private String roleName;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -38,15 +36,6 @@ public class RoleEntity {
 
     public RoleEntity setRoleName(String roleName) {
         this.roleName = roleName;
-        return this;
-    }
-
-    public Set<UserEntity> getUsers() {
-        return users;
-    }
-
-    public RoleEntity setUsers(Set<UserEntity> users) {
-        this.users = users;
         return this;
     }
 

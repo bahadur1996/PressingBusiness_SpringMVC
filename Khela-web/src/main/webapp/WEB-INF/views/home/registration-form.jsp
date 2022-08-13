@@ -6,8 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
+<c:url var="saveUser" value="/rest/public/signup"/>
             <div class="modal fade" id="loginModal" tabindex="-1" roleEntity="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" roleEntity="document">
                     <div class="modal-content">
@@ -17,33 +21,34 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel">Login form</h4>
                         </div>
+                        <form method="post" action="/login" >
                         <div class="modal-body">
-                            <form>
+
                                 <div class="form-group">
-                                    <label for="email">Email address</label>
+                                    <label for="username">Email/Username</label>
                                     <div class="input-group pb-modalreglog-input-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Email/Username">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <div class="input-group pb-modalreglog-input-group">
-                                        <input type="password" class="form-control" id="pws" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     </div>
                                 </div>
-                            </form>
                         </div>
-                        <div class="modal-footer">
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Log in</button>
+                            <input type="submit" class="btn btn-primary"/>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="modal fade" id="registrationModal" tabindex="-1" roleEntity="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" roleEntity="document">
@@ -52,43 +57,56 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title" id="registrationModalLabel"> Oops! you are not logged in. Tell us who you are</h4>
+                            <h4 class="modal-title" id="registrationModalLabel">Please tell us who you are!</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="pb-modalreglog-form-reg">
                                 <div class="form-group">
                                     <div id="pb-modalreglog-progressbar"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="customerName">Name </label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                        <input type="text" class="form-control" id="customerName" placeholder="Name">
+                                <div class="row form-group">
+                                    <div class="col-lg-6">
+                                        <label class="control-label">First name</label>
+                                        <input type="text" name = "firstName" id="firstName" class="form-control" placeholder="First name"/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Last name</label>
+                                        <input type="text" name = "lastName" id="lastName" class="form-control" placeholder="Last name"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="customerMobile">Mobile</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                                        <input type="text" class="form-control" id="customerMobile" placeholder="Mobile">
+                                <div class="row form-group">
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Email</label>
+                                        <input type="email" name = "emailRegistration" id="emailRegistration" class="form-control" placeholder="Email"/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="control-label">mobile</label>
+                                        <input type="text" name = "mobile" id="mobile" class="form-control" placeholder="mobile"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="customerEmail">Email</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-inbox"></span></span>
-                                        <input type="email" class="form-control" id="customerEmail" placeholder="Email">
+                                <div class="row form-group">
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Address</label>
+                                        <input type="email" name = "address" id="address" class="form-control" placeholder="Address"/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Country</label>
+                                        <input type="text" name = "country" id="country" class="form-control" placeholder="Country"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="customerAddress">Address</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
-                                        <input type="text" class="form-control" id="customerAddress" placeholder="Address">
+                                <div class="row form-group">
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" name = "password" id="registrationPassword" class="form-control" placeholder="Password"/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="control-label">Account type</label>
+                                        <select id="role" name="role" class="form-control">
+                                            <option value="">Select account type</option>
+                                            <option value="ADMIN">Admin</option>
+                                            <option value="USER">User</option>
+                                        </select>
                                     </div>
                                 </div>
-
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -100,69 +118,45 @@
         </div>
 
 <script>
-    // $(function () {
-    //     var progress = $("#pb-modalreglog-progressbar").shieldProgressBar({
-    //         value: 0
-    //     }).swidget();
-    //
-    //     $('#inputEmail').change(function () {
-    //         if ($('#inputEmail').val().length > 1) {
-    //             progress.value(progress.value() + 15);
-    //         } else {
-    //             progress.value(progress.value() - 15);
-    //         }
-    //     });
-    //
-    //     $('#inputPws').change(function () {
-    //         if ($('#inputPws').val().length > 1) {
-    //             progress.value(progress.value() + 15);
-    //         } else {
-    //             progress.value(progress.value() - 15);
-    //         }
-    //     });
-    //
-    //     $('#inputConfirmPws').change(function () {
-    //         if ($('#inputConfirmPws').val().length > 1) {
-    //             progress.value(progress.value() + 15);
-    //         } else {
-    //             progress.value(progress.value() - 15);
-    //         }
-    //     });
-    //
-    //     $('#countries').change(function () {
-    //         if ($('#countries').val().length > 1) {
-    //             progress.value(progress.value() + 15);
-    //         } else {
-    //             progress.value(progress.value() - 15);
-    //         }
-    //     });
-    //
-    //     $('#age').change(function () {
-    //         if ($('#age').val().length > 1) {
-    //             progress.value(progress.value() + 15);
-    //         } else {
-    //             progress.value(progress.value() - 15);
-    //         }
-    //     });
-    //
-    //     $('#ch').change(function () {
-    //         if ($('input[name="chs"]:checked').length > 0) {
-    //             progress.value(progress.value() + 25);
-    //         } else {
-    //             progress.value(progress.value() - 25);
-    //         }
-    //     });
-    //
-    //     $("#age").shieldMaskedTextBox({
-    //         enabled: true,
-    //         mask: "00/00/0000",
-    //         value: "19/03/1032"
-    //     });
-    // })
-</script>
-
-<script>
     function closeModal(){
         $('#registrationModal').modal('hide');
+        $('#loginModal').modal('hide');
+    }
+    function showModal(){
+        $('#registrationModal').modal('toggle');
+    }
+    function showLoginForm(){
+        $('#loginModal').modal('toggle');
+    }
+
+    function submit(){
+
+        var formData ={
+            firstName : $('#firstName').val(),
+            lastName : $('#lastName').val(),
+            email :  $('#emailRegistration').val(),
+            mobile : $('#mobile').val(),
+            address : $('#address').val(),
+            country : $('#country').val(),
+            password : $('#password').val()
+        }
+
+        var url = '${saveUser}'+'?roleName='+$('#role').val()+'&_csrf='+'${_csrf.token}';
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: JSON.stringify(formData),
+            dataType: 'json',
+            contentType: "application/json",
+            beforeSend : function(xhr){
+
+            },
+            success: function(result,status,jqXHR ) {
+                $('#registrationModal').modal('hide');
+                alert("Registration successful!");
+            }
+        });
+
     }
 </script>
