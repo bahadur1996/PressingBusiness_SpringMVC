@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <c:url var="saveOrder" value="/rest/order"/>
 
 <html>
@@ -14,14 +17,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
     <title>Khela Computer</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/my-style.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/components.css" />" rel="stylesheet">
@@ -30,11 +31,8 @@
     <link href="<c:url value="/resources/css/plugins-md.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/plugins.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/select2.min.css" />" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css" />" rel="stylesheet">
 </head>
-<!-- NAVBAR
-================================================== -->
 <body>
 <jsp:include page="common.jsp"/>
 
@@ -148,11 +146,11 @@
         </div>
 
     </div>
-<jsp:include page="registration-form.jsp"/>
-<%--all scripts goes here--%>
+</body>
+</html>
+<%--all scripts go here--%>
 <script>
     function submit(){
-
 
         var formData ={
             customerName: $('#customerName').val(),
@@ -172,12 +170,18 @@
             bindingRequired : getCheckBoxStatus("bindingRequired"),
             deliveryDate :  $('#deliveryDate').val(),
         }
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
         $.ajax({
             url: '${saveOrder}',
             method: "POST",
             data: JSON.stringify(formData),
             dataType: 'json',
             contentType: "application/json",
+            beforeSend : function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
             success: function(result,status,jqXHR ) {
                 $('#registrationModal').modal('hide');
             }
@@ -185,15 +189,13 @@
 
     }
     function getCheckBoxStatus(id){
-       return document.getElementById(id).checked ? true : false;
+        return document.getElementById(id).checked ? true : false;
     }
     function showModal(){
 
         $('#registrationModal').modal('toggle');
     }
 </script>
-
-
 
 <script>
     $( document ).ready(function() {
@@ -208,7 +210,3 @@
     });
 </script>
 
-
-
-</body>
-</html>

@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <c:url var="savePrice" value="/rest/price"/>
 
 <html>
@@ -284,12 +286,18 @@
             bindingRequired : getCheckBoxStatus("bindingRequired"),
             price :  $('#price').val()
         }
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
         $.ajax({
             url: '${savePrice}',
             method: "POST",
             data: JSON.stringify(formData),
             dataType: 'json',
             contentType: "application/json",
+            beforeSend : function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
             success: function(result,status,jqXHR ) {
                 $('#priceAddModal').modal('hide');
             }

@@ -8,6 +8,8 @@
 
 <%--place this inside body tag for each jsp file--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="logOutUrl" value="/rest/user/logoutUrl"/>
+
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -42,11 +44,11 @@
 
                         <li><a href="/admin/admin.html">Admin</a></li>
 
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href='${logOutUrl}'>Logout</a></li>
 
                         <% } else if(AuthenticationManager.isLoggedIn() && !AuthenticationManager.getLoggedInUser().getRoleNames().contains("ADMIN")) {%>
 
-                        <li><a href="/rest/user/logout">Logout</a></li>
+                        <li><a href='${logOutUrl}'>Logout</a></li>
 
                         <% } else {%>
                         <li><a href="/login">Login</a></li>
@@ -58,6 +60,7 @@
 
     </div>
 </div>
+<jsp:include page="registration-form.jsp"/>
 <div style="height: 12%;width: 100%;background-color: #2b669a;">
 
 </div>
